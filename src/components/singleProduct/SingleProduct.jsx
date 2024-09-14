@@ -3,7 +3,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetProductQuery } from '../../redux/api/productApi';
 import { Carousel } from 'antd';
-
+import 'antd/dist/reset.css';
 
 
 const SingleProduct = () => {
