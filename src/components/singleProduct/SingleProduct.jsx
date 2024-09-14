@@ -4,6 +4,16 @@ import { useParams } from 'react-router-dom';
 import { useGetProductQuery } from '../../redux/api/productApi';
 import { Carousel } from 'antd';
 
+
+const contentStyle = {
+    margin: 0,
+    height: '160px',
+    color: '#fff',
+    lineHeight: '160px',
+    textAlign: 'center',
+    background: '#364d79',
+  };
+
 const SingleProduct = () => {
     const { id } = useParams();
     const { data } = useGetProductQuery(id);
