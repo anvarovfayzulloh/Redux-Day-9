@@ -18,9 +18,9 @@ const Nav = () => {
                     <Link to={"/auth/signup"} >
                         Sign Up
                     </Link>
-                    <Link to={"/profile"} className='flex gap-[10px]' >
+                    <Link to={"/profile"} className='flex gap-[10px] items-center' >
                     <img className='w-[30px] h-[30px] rounded-full object-cover' src={data.data?.payload.photo_url || "https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small_2x/user-profile-icon-free-vector.jpg"} alt="" />
-                        Profile
+                        <p>Profile</p>
                     </Link>
                 </span>
             </ul>
