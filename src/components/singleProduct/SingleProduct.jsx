@@ -8,11 +8,8 @@ import 'antd/dist/reset.css';
 
 const SingleProduct = () => {
     const { id } = useParams();
-    const { data, isLoading, error } = useGetProductQuery(id);
+    const { data } = useGetProductQuery(id);
     const product = data?.payload;
-    
-    // if (isLoading) return <p>Loading...</p>;
-    // if (error) return <p>Failed to load product</p>;
 
     return (
         <div className="max-w-[1200px] mx-auto p-8">
