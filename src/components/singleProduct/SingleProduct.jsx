@@ -15,7 +15,7 @@ const SingleProduct = () => {
         <div className="max-w-[1200px] mx-auto p-8">
             {product ? (
                 <div className="flex items-center shadow-lg rounded-lg bg-white p-6">
-                    <Carousel className="max-w-[300px] bg-[#DDDDDE] mx-auto" arrows autoplay autoplaySpeed={3000} infinite>
+                    <Carousel className="w-[300px] bg-[#DDDDDE] mx-auto" arrows autoplay autoplaySpeed={3000} infinite>
                         {Array.isArray(product.product_images) ? product.product_images.map((image, index) => (
                             <div key={index} >
                                 <img src={image} alt="" />

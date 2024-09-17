@@ -1,14 +1,16 @@
 import React from 'react';
 import { useProfileFetchQuery } from '../../redux/api/profileApi';
 import { logOut } from '../../redux/slices/authSlice';
+import { useDispatch } from 'react-redux';
 
 const Profile = () => {
   const data = useProfileFetchQuery();
   console.log(data)
   const profile = data?.data?.payload;
+  const dispatch = useDispatch();
 
   const handleLogOut= () => {
-    logOut()
+    dispatch(logOut())
   }
 
   return (
