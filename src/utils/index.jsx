@@ -8,4 +8,13 @@ const SuspenseComponent = ({children}) => {
   )
 }
 
-export default SuspenseComponent
+export { SuspenseComponent }
+
+import React from 'react';
+import ReactLoading from 'react-loading';
+ 
+const Loading = ({ type, color }) => (
+    <ReactLoading type={"bars"} color={"black"} height={"100px"} width={"100px"} />
+);
+ 
+export { Loading };

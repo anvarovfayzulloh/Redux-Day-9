@@ -1,6 +1,6 @@
 import { useRoutes } from "react-router-dom";
 import { lazy } from "react";
-import Suspense from "../utils";
+import { SuspenseComponent as Suspense  } from "../utils";
 import Nav from '../components/nav/Nav';
 import AllUsers from "./profile/allUser/AllUsers";
 
