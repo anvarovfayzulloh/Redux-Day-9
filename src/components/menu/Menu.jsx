@@ -22,7 +22,8 @@ const items = [
 const App = () => {
   return (
     <div
-      className='fixed'
+
+      className='sticky top-[0px] left-0 max-w-[170px]'
     >
       
       <Menu 
