@@ -2,6 +2,7 @@ import { useRoutes } from "react-router-dom";
 import { lazy } from "react";
 import Suspense from "../utils";
 import Nav from '../components/nav/Nav';
+import AllUsers from "./profile/allUser/AllUsers";
 
 const Home = lazy(() => import('../routes/home/Home'));
 const Profile = lazy(() => import('../routes/profile/Profile'));
@@ -32,6 +33,10 @@ const RouteController = () => {
         {
           path: "/profile/",
           element: <Suspense><Profile/></Suspense>
+        },
+        {
+          path: "/profile/allUsers",
+          element: <Suspense><AllUsers/></Suspense>
         }
       ]
     },

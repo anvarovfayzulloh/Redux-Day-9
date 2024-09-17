@@ -2,10 +2,10 @@ import React from 'react';
 import { useProfileFetchQuery } from '../../redux/api/profileApi';
 import { logOut } from '../../redux/slices/authSlice';
 import { useDispatch } from 'react-redux';
+import Menu from "../../components/menu/Menu"
 
 const Profile = () => {
   const data = useProfileFetchQuery();
-  console.log(data)
   const profile = data?.data?.payload;
   const dispatch = useDispatch();
 
@@ -15,6 +15,7 @@ const Profile = () => {
 
   return (
     <div className="bg-black min-h-screen py-12">
+      <Menu/>
       <div className="max-w-[1000px] mx-auto px-8">
         {profile ? (
           <div className="flex  shadow-md rounded-lg overflow-hidden bg-gray-800">
