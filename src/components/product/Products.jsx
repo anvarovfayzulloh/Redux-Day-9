@@ -8,15 +8,15 @@ const Products = () => {
   const { data } = useGetProductsQuery();
 
   return (
-    <div className="container mx-auto px-4 flex justify-center pt-[40px] items-center">
+    <div className="container max-w-[1000px] flex-wrap mx-auto px-4 flex pt-[40px] items-center gap-[30px]">
       {
         data && data.payload &&
         data.payload.map(product => (
-          <div key={product._id} className="mb-6">
-            <Carousel className="max-w-[200px] bg-[#DDDDDE] mx-auto" arrows autoplay autoplaySpeed={3000} infinite={true}>
+          <div key={product._id} className="mb-6 outline-none">
+            <Carousel className="max-w-[200px] bg-[#DDDDDE] mx-auto outline-none" arrows dots={false} infinite={true}>
               {
                 product.product_images ? product.product_images.map((image, index) => (
-                  <div key={index}>
+                  <div key={index} className='outline-none'>
                     <img src={image} alt={product.product_name} className="w-full h-auto" />
                   </div>
                 )) : <p>Loading...</p>

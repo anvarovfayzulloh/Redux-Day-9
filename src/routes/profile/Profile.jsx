@@ -1,11 +1,16 @@
 import React from 'react';
 import { useProfileFetchQuery } from '../../redux/api/profileApi';
-import { Link } from 'react-router-dom';
+import { logOut } from '../../redux/slices/authSlice';
 
 const Profile = () => {
   const data = useProfileFetchQuery();
   console.log(data)
   const profile = data?.data?.payload;
+
+  const handleLogOut= () => {
+    logOut()
+  }
+
   return (
     <div className="bg-black min-h-screen py-12">
       <div className="max-w-[1000px] mx-auto px-8">
@@ -18,6 +23,9 @@ const Profile = () => {
               <h1 className="text-3xl font-semibold mb-2">Welcome, {profile.first_name}!</h1>
               <p className="text-lg mb-1">Username: <span className="font-normal text-gray-300">{profile.username}</span></p>
               <p className="text-lg mb-3">Role: <span className="font-normal text-gray-300 capitalize">{profile.role}</span></p>
+              <button className="px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300" onClick={handleLogOut}>
+                Logout
+                </button>
             </div>
           </div>
         ) : (
