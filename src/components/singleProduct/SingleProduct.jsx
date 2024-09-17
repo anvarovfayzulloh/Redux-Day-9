@@ -10,7 +10,7 @@ const SingleProduct = () => {
     const { id } = useParams();
     const { data } = useGetProductQuery(id);
     const product = data?.payload;
-
+    console.log(data)
     return (
         <div className="max-w-[1200px] mx-auto p-8">
             {product ? (

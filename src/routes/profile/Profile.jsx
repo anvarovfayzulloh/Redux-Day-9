@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Profile = () => {
   const data = useProfileFetchQuery();
+  console.log(data)
   const profile = data?.data?.payload;
   return (
     <div className="bg-black min-h-screen py-12">
