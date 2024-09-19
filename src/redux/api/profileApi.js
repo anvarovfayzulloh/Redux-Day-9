@@ -23,7 +23,7 @@ const profileApi = api.injectEndpoints({
     }),
     deleteUser: build.mutation({
       query: ({ id }) => ({
-        url: `/admin/delete-user/${id}`, // Ensure the full route matches your backend configuration
+        url: `/admin/delete-user/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["USERS"],

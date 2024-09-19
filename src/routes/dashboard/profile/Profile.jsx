@@ -2,21 +2,19 @@ import React from 'react';
 import { useProfileFetchQuery } from '../../../redux/api/profileApi';
 import { logOut } from '../../../redux/slices/authSlice';
 import { useDispatch } from 'react-redux';
-import { useGetUsersQuery } from '../../../redux/api/profileApi';
 
 
 const Profile = () => {
   const data = useProfileFetchQuery();
   const profile = data?.data?.payload;
   const dispatch = useDispatch();
-  const { data: users } = useGetUsersQuery();
-
+  console.log(data?.data?.payload)
   const handleLogOut = () => {
     dispatch(logOut())
   }
 
   return (
-    <div className="bg-black min-h-screen py-12">
+    <div className="bg-black h-[627.4px] pt-12">
       <div className="max-w-[1000px] mx-auto px-8">
         {profile ? (
           <div className="flex  shadow-md rounded-lg overflow-hidden bg-gray-800">

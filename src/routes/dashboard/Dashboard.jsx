@@ -11,7 +11,7 @@ const Dashboard = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className='flex ' >
+    <div className='flex' >
       <div>
         <Sidebar/>
       </div>

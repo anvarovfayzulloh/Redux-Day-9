@@ -63,7 +63,7 @@ const AllUsers = () => {
   };
 
   return (
-    <div className="min-h-screen py-12">
+    <div className="min-h-[627.6px] py-12">
       <div className="max-w-[1440px] m-auto flex flex-wrap justify-start px-[130px] gap-[30px]">
         <Table className="w-full" columns={columns} dataSource={users} size="middle" pagination=
           {
