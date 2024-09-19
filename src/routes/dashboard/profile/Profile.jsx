@@ -1,13 +1,15 @@
 import React from 'react';
-import { useProfileFetchQuery } from '../../redux/api/profileApi';
-import { logOut } from '../../redux/slices/authSlice';
+import { useProfileFetchQuery } from '../../../redux/api/profileApi';
+import { logOut } from '../../../redux/slices/authSlice';
 import { useDispatch } from 'react-redux';
-import Menu from "../../components/menu/Menu"
+import { useGetUsersQuery } from '../../../redux/api/profileApi';
+
 
 const Profile = () => {
   const data = useProfileFetchQuery();
   const profile = data?.data?.payload;
   const dispatch = useDispatch();
+  const { data: users } = useGetUsersQuery();
 
   const handleLogOut = () => {
     dispatch(logOut())
@@ -15,7 +17,6 @@ const Profile = () => {
 
   return (
     <div className="bg-black min-h-screen py-12">
-      <Menu/>
       <div className="max-w-[1000px] mx-auto px-8">
         {profile ? (
           <div className="flex  shadow-md rounded-lg overflow-hidden bg-gray-800">

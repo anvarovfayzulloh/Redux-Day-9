@@ -1,13 +1,24 @@
 import { api } from "./index";
 
-const productApi = api.injectEndpoints({
+const productsApi = api.injectEndpoints({
   endpoints: (build) => ({
-    getProduct: build.query({
-      query: (id) => ({
-        url: `product/single-product/${id}`
+    getProduct  : build.query({
+      query: () => ({
+        url: "/product/all"
       }),
+    }),
+    getProductDetails: build.query({
+      query: (id) => ({
+        url: `/product/single-product/${id}`
+      })
+    }),
+    searchProduct: build.mutation({
+      query: (searchQuery) => ({
+        url: `/product/search?ProductName=${searchQuery}`,
+        method: "POST"
+      })
     })
   }),
 });
 
-export const { useGetProductQuery } = productApi;
+export const { useGetProductQuery, useGetProductDetailsQuery, useSearchProductMutation } = productsApi;

@@ -22,7 +22,7 @@ const Login = () => {
       notification.success({
         message: "Successfully logged in! Go ahed 😊"
       })
-      navigate("/profile")
+      navigate("/dashboard/profile")
     }
   }, [isSuccess])
 

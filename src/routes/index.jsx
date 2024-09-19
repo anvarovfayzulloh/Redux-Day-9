@@ -1,17 +1,18 @@
-import { useRoutes } from "react-router-dom";
+import { Routes, useRoutes } from "react-router-dom";
 import { lazy } from "react";
 import { SuspenseComponent as Suspense  } from "../utils";
 import Nav from '../components/nav/Nav';
-import AllUsers from "./profile/allUser/AllUsers";
 
 const Home = lazy(() => import('../routes/home/Home'));
-const Profile = lazy(() => import('../routes/profile/Profile'));
+const Profile = lazy(() => import('../routes/dashboard/profile/Profile'));
 const Auth = lazy(() => import('../routes/auth/Auth'));
 const Login = lazy(() => import('../routes/auth/login/Login'));
 const SignUp = lazy(() => import('../routes/auth/signup/SignUp'));
 const NotFound = lazy(() => import('../routes/not-found/NotFound'));
 const Private = lazy(() => import('../routes/private/Private'));
 const SingleProduct = lazy(() => import('../components/singleProduct/SingleProduct'))
+const AllUsers = lazy(() => import('./dashboard/allUser/AllUsers'))
+const Dashboard = lazy(() => import('./dashboard/Dashboard'))
 
 const Layout = ({ children }) => (
   <>
@@ -27,18 +28,28 @@ const RouteController = () => {
       element: <Layout><Suspense><Home/></Suspense></Layout>
     },
     {
-      path: "/profile",
-      element: <Layout><Suspense><Private/></Suspense></Layout>,
+      path: "/dashboard",
+      element: <Suspense><Private/></Suspense>,
       children: [
         {
-          path: "/profile/",
-          element: <Suspense><Profile/></Suspense>
+          path: "/dashboard/",
+          element: <Suspense><Dashboard/></Suspense>,
+          children: [
+            {
+              path: "/dashboard/profile",
+              element: <Suspense><Profile/></Suspense>
+            },
+            {
+              path: "/dashboard/allUsers",
+              element: <Suspense><AllUsers/></Suspense>
+            },
+          ]
         },
-        {
-          path: "/profile/allUsers",
-          element: <Suspense><AllUsers/></Suspense>
-        }
       ]
+    },
+    {
+      path: "/allUsers",
+      element: <Layout><Suspense><AllUsers/></Suspense></Layout>
     },
     {
       path: "/product/:id",
@@ -60,7 +71,7 @@ const RouteController = () => {
     },
     {
       path: "*",
-      element: <Suspense><NotFound/></Suspense> // No Nav here
+      element: <Suspense><NotFound/></Suspense> 
     }
   ]);
 }

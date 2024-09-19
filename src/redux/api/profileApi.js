@@ -3,12 +3,16 @@ import { api } from "./index";
 const profileApi = api.injectEndpoints({
   endpoints: (build) => ({
     profileFetch: build.query({
-      query: (body) => ({
+      query: () => ({
         url: "/auth/profile",
-        body
+      }),
+    }),
+    getUsers: build.query({
+      query: () => ({
+        url: "/admin/registered-users",
       }),
     }),
   }),
 });
 
-export const { useProfileFetchQuery} = profileApi;
+export const { useProfileFetchQuery, useGetUsersQuery } = profileApi;
