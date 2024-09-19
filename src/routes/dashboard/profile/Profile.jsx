@@ -14,7 +14,7 @@ const Profile = () => {
   }
 
   return (
-    <div className="bg-black h-[627.4px] pt-12">
+    <div className="bg-black h-screen pt-12">
       <div className="max-w-[1000px] mx-auto px-8">
         {profile ? (
           <div className="flex  shadow-md rounded-lg overflow-hidden bg-gray-800">
