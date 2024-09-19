@@ -11,11 +11,11 @@ const Dashboard = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className='flex' >
+    <div className='flex max-h-screen h-full bg-[#05052a]' >
       <div>
         <Sidebar/>
       </div>
-      <div className='flex-1' >
+      <div className='flex-1 max-h-screen' >
         <div className='bg-[#05052a] flex py-[10px] justify-end' >
           <Button onClick={()=> dispatch(logOut())}  danger type='primary' ><BiLogOut />Log Out</Button>
         </div>
