@@ -27,9 +27,6 @@ const Profile = () => {
               <h1 className="text-3xl font-semibold mb-2">Welcome, {profile.first_name}!</h1>
               <p className="text-lg mb-1">Username: <span className="font-normal text-gray-300">{profile.username}</span></p>
               <p className="text-lg mb-3">Role: <span className="font-normal text-gray-300 capitalize">{profile.role}</span></p>
-              <button className="px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300" onClick={handleLogOut}>
-                Logout
-              </button>
             </div>
           </div>
         ) : (

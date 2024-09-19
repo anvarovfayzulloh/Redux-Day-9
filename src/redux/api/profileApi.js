@@ -11,8 +11,24 @@ const profileApi = api.injectEndpoints({
       query: () => ({
         url: "/admin/registered-users",
       }),
+      providesTags: ["USERS"],
+    }),
+    promoteUser: build.mutation({
+      query: ({ username }) => ({
+        url: "/admin/add-admin",
+        method: "POST",
+        body: { username },
+      }),
+      invalidatesTags: ["USERS"],
+    }),
+    deleteUser: build.mutation({
+      query: ({ id }) => ({
+        url: `/admin/delete-user/${id}`, // Ensure the full route matches your backend configuration
+        method: "DELETE",
+      }),
+      invalidatesTags: ["USERS"],
     }),
   }),
 });
 
-export const { useProfileFetchQuery, useGetUsersQuery } = profileApi;
+export const { useProfileFetchQuery, useGetUsersQuery, usePromoteUserMutation, useDeleteUserMutation } = profileApi;
