@@ -21,7 +21,7 @@ const SignUp = () => {
        notification.success({
         message: "Successfully signed up! Go ahead 😊"
        })
-      navigate("/profile")
+      navigate("/dashboard/profile")
     }
   }, [isSuccess])
 
